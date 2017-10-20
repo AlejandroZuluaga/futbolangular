@@ -1,0 +1,38 @@
+<form #addForm=ngForm (ngSubmit)="onSave()" id="from-equipo">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class='example-full-width'>
+          <input required matInput placeholder="Nombre Equipo" [(ngModel)]="equipoadd.nombreequipo" name="nombre" #nombre="ngModel" />
+          <mat-error [hidden]="nombre.valid || nombre.pristine">
+            Campo requerido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class='example-full-width'>
+          <input required matInput placeholder="Nombre Tecnico" [(ngModel)]="equipoadd.directortecnico" name="dt" #dt="ngModel" />
+          <mat-error [hidden]="dt.valid || dt.pristine">
+            Campo requerido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class='example-full-width'>
+          <input  matInput placeholder="id calendario" [(ngModel)]="equipoadd.idcalendario" name="calendario" #calendario="ngModel" />
+          <mat-error [hidden]="calendario.valid || calendario.pristine">
+            Campo requerido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <div class="button_row">
+      <button [disabled]="!addForm.valid" mat-raised-button color="primary">Guardar</button>
+    </div>
+</form>
+
