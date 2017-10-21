@@ -18,16 +18,25 @@ export class AddEquipoComponent implements OnInit {
     private equipoServices: EquipoServices,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+
+    this.equipo = new Equipo(6, 'Nombre Equipo', 'Director Tecnico');
+  }
   ngOnInit() {
-    this.equipo = new Equipo();
   }
   onSave() {
+    this.equipoServices.addEquipo(this.equipo).subscribe(
+      response => {
+        if (response.code === 200) {
+          alert('Registro Guardado Exitosamente');
 
-    this.equipoServices.addEquipo(this.equipo);
-    this.equipo = new Equipo();
-
-
+        } else {
+          console.log(response);
+        }
+      }, error => {
+        console.log(<any>error);
+      }
+    );
   }
 
 }

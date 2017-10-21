@@ -15,36 +15,24 @@ export class EquipoServices {
     options: RequestOptions;
 
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private _http: Http) {
 
     }
 
     getEquipo() {
         this.http.get('http://localhost:8081/futbolangular/webresources/com.entidades.futbolangular.equipo')
-
             .subscribe(data => {
-
-                this.equipoList = data as
-                    Array<Equipo>;
+                this.equipoList = data as Array<Equipo>;
             });
     }
 
     addEquipo(equipoAdd: Equipo) {
+        const json = JSON.stringify(equipoAdd);
+        const params = json;
+        const headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
 
-        const body = {
-            id: equipoAdd.idequipo,
-            nombre: equipoAdd.nombreequipo, directortecnico:
-            equipoAdd.directortecnico
-        };
-
-        this.http.post('http://localhost:8081/futbolangular/webresources/com.entidades.futbolangular.equipo',
-            body)
-
-            .subscribe(data => {
-
-                this.getEquipo();
-
-            });
+        return this._http.post('http://localhost:8081/futbolangular/webresources/com.entidades.futbolangular.equipo',
+            params, { headers: headers }).map(res => res.json());
 
     }
 

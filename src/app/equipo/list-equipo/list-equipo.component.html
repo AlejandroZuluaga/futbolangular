@@ -1,43 +1,41 @@
-<!--
+
+<div>
+  <ul>
+    <li *ngFor="let eqo of equipoServices.equipoList">
+      <strong>{{eqo.nombreequipo}}</strong>
+      <p> {{eqo.directortecnico}}</p>
+    </li>
+  </ul>
+</div>
+
 <div class="example-container mat-elevation-z8">
-  <div class="example-header">
-    <mat-form-field floatPlaceholder="never">
-      <input matInput #filter placeholder="Filter users">
-    </mat-form-field>
-  </div>
-  <mat-table #table [dataSource]="dataSource">
-    <ng-container matColumnDef="userId">
-      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+  <mat-table #table [equipoServices]="dataSource">
+
+
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> ID Equipo. </mat-header-cell>
+      <mat-cell *ngFor="let eqo of equipoServices.equipoList"> {{eqo.idequipo}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="progress">
-      <mat-header-cell *matHeaderCellDef> Progress </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="userName">
+
+    
+    <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="color">
-      <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+
+    
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    </ng-container>
+
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-</div>
--->
-
-<h3 align="center">{{titulo}}</h3>
-
-
-<hr/>
-
-<div >
-  <ul>
-    <li *ngFor="let eqp of equipoServices.equipoList ">
-      <strong>{{eqp.nombreequipo}}</strong>
-      <p> {{eqp.directortecnico}}</p>
-    </li>
-  </ul>
 </div>

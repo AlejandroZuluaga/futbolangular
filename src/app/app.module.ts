@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Component } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { EquipoModule } from './equipo/equipo.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EquipoServices } from './services/equipo.services';
@@ -61,6 +63,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     HttpModule,
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     EquipoModule,

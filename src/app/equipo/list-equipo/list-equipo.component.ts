@@ -24,9 +24,7 @@ import 'rxjs/add/observable/fromEvent';
 
 export class ListEquipoComponent implements OnInit {
   public titulo: string;
-  public equipo: Equipo[];
-
-  constructor(
+   constructor(
        private equipoServices: EquipoServices
   ) { this.titulo = ' Listado de Equipos '; }
   ngOnInit() {
@@ -34,100 +32,3 @@ export class ListEquipoComponent implements OnInit {
 
   }
 }
-
-/**
-export class TableFilteringExample implements OnInit {
-  displayedColumns = ['userId', 'userName', 'progress', 'color'];
-  exampleDatabase = new ExampleDatabase();
-  dataSource: ExampleDataSource | null;
-
-  @ViewChild('filter') filter: ElementRef;
-
-  ngOnInit() {
-    this.dataSource = new ExampleDataSource(this.exampleDatabase);
-    Observable.fromEvent(this.filter.nativeElement, 'keyup')
-      .debounceTime(150)
-      .distinctUntilChanged()
-      .subscribe(() => {
-        if (!this.dataSource) { return; }
-        this.dataSource.filter = this.filter.nativeElement.value;
-        console.log('tabla cargada ');
-      });
-  }
-}
-
-/
-const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-
-export class ExampleDatabase {
-
-  dataChange: BehaviorSubject<UserData[]> = new BehaviorSubject<UserData[]>([]);
-  get data(): UserData[] { return this.dataChange.value; }
-
-  constructor() {
-    // Fill up the database with 100 users.
-    for (let i = 0; i < 100; i++) { this.addUser(); }
-  }
-
-
-  addUser() {
-    const copiedData = this.data.slice();
-    copiedData.push(this.createNewUser());
-    this.dataChange.next(copiedData);
-  }
-
-
-  private createNewUser() {
-    const name =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-    return {
-      id: (this.data.length + 1).toString(),
-      name: name,
-      progress: Math.round(Math.random() * 100).toString(),
-      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-    };
-  }
-}
-
-
-export class ExampleDataSource extends DataSource<any> {
-  _filterChange = new BehaviorSubject('');
-  get filter(): string { return this._filterChange.value; }
-  set filter(filter: string) { this._filterChange.next(filter); }
-
-  constructor(private _exampleDatabase: ExampleDatabase) {
-    super();
-  }
-
-  connect(): Observable<UserData[]> {
-    const displayDataChanges = [
-      this._exampleDatabase.dataChange,
-      this._filterChange,
-    ];
-
-    return Observable.merge(...displayDataChanges).map(() => {
-      return this._exampleDatabase.data.slice().filter((item: UserData) => {
-        const searchStr = (item.name + item.color).toLowerCase();
-        return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
-      });
-    });
-  }
-
-  disconnect() { }
-}
-
-*/

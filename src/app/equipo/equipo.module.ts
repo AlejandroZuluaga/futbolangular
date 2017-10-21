@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddEquipoComponent } from './add-equipo/add-equipo.component';
 import { ListEquipoComponent } from './list-equipo/list-equipo.component';
 import { IndexComponent } from './index/index.component';
+import { EquipoServices } from '../services/equipo.services';
 import { FormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
@@ -71,6 +72,7 @@ import {
     MatToolbarModule,
     MatTooltipModule
   ],
-  declarations: [AddEquipoComponent, ListEquipoComponent, IndexComponent]
+  declarations: [AddEquipoComponent, ListEquipoComponent, IndexComponent],
+  providers: [EquipoServices]
 })
 export class EquipoModule { }
