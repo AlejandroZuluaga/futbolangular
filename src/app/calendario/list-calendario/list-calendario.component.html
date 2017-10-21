@@ -1,0 +1,36 @@
+<div class="example-container mat-elevation-z8">
+  <table matSort (matSortChange)="sortData($event)"  align="center">
+    <tr>
+      <th mat-sort-header="" text-align="center">Id Jugador </th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th mat-sort-header="" text-align="center">Nombre Jugador </th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th mat-sort-header="" text-align="center">Apellido</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th mat-sort-header="" text-align="center">Edad</th>
+    </tr>
+
+    <tr *ngFor="let ca of calendarioServices.calendarioList">
+      <td align="center">{{ca.idjugador}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td align="left">{{ca.nombrejugador}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td align="left">{{ca.apellidojugador}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td align="left">{{ca.edad}}</td>
+
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,48 @@
+<form #addForm=ngForm (ngSubmit)="onSave()" id="from-Calendario" align="center">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class='example-full-width'>
+          <input required matInput placeholder="Id jugador" [(ngModel)]="calendario.idjugador" name="idjugador" #idjugador="ngModel" />
+          <mat-error [hidden]="idjugador.valid || idjugador.pristine">
+            Campo requerido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <mat-form-field class='example-full-width'>
+        <input matInput placeholder="Nombre" [(ngModel)]="calendario.nombrejugador" name="nombrejugador" #nombrejugador="ngModel"/>
+        <mat-error [hidden]="nombrejugador.valid || nombrejugador.pristine">
+          Campo requerido
+        </mat-error>
+      </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class='example-full-width'>
+          <input required matInput placeholder="Apellido" [(ngModel)]="calendario.apellidojugador" name="apellidojugador" #apellidojugador="ngModel"
+          />
+          <mat-error [hidden]="apellidojugador.valid || apellidojugador.pristine">
+            Campo requerido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class='example-full-width'>
+          <input required matInput placeholder="edad" [(ngModel)]="calendario.edad" name="edad" #edad="ngModel" />
+          <mat-error [hidden]="edad.valid || edad.pristine">
+            Campo requerido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <div class="button_row">
+    <button [disabled]="!addForm.valid" mat-raised-button color="primary">Guardar</button>
+  </div>
+</form>

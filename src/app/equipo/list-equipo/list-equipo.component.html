@@ -1,41 +1,29 @@
-
-<div>
-  <ul>
-    <li *ngFor="let eqo of equipoServices.equipoList">
-      <strong>{{eqo.nombreequipo}}</strong>
-      <p> {{eqo.directortecnico}}</p>
-    </li>
-  </ul>
-</div>
-
 <div class="example-container mat-elevation-z8">
-  <mat-table #table [equipoServices]="dataSource">
+  <table matSort (matSortChange)="sortData($event)" align="center">
+    <tr>
+      <th mat-sort-header="" text-align="center">Id Equipo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th mat-sort-header="" text-align="center">Nombre Equipo </th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th mat-sort-header="" text-align="center">Director tecnico </th>
 
+    </tr>
 
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> ID Equipo. </mat-header-cell>
-      <mat-cell *ngFor="let eqo of equipoServices.equipoList"> {{eqo.idequipo}} </mat-cell>
-    </ng-container>
+    <tr *ngFor="let eqo of equipoServices.equipoList">
+      <td align="center">{{eqo.idequipo}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td align="left">{{eqo.nombreequipo}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td align="left">{{eqo.directortecnico}}</td>
 
-    
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
-
-    
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-    </ng-container>
-
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+    </tr>
+  </table>
 </div>
