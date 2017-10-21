@@ -1,4 +1,10 @@
 .mat-toolbar.mat-primary {
-    color: black;
-    background: rgb(114, 223, 42);
+    color: #F6F0F0;
+    background: rgb(71, 145, 23);
+}
+ejemploletra{
+    font-style:italic;
+    font-weight:bold;
+    font-size:2em;
+    font-family:'serif';
 }

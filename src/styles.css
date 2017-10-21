@@ -7,4 +7,12 @@
     height: 100%;
   }
 
+  md-card {
+    padding: 20px;
+  }
   
+  footer {
+    color: #F6F0F0;
+    background: rgb(71, 145, 23);
+    font-family: "Helvetica";
+  }
